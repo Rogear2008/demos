@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+<!--    <classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+
+    <!-- 加载配置文件 -->
+    <properties resource="jdbc.properties"/>
+    <context id="ssm-demo" targetRuntime="MyBatis3">
+        <!-- 设置字符集 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 为模型生成序列化方法-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--自定义生成entity的代码注释-->
+        <commentGenerator type="com.rogear.ssm.demo.mbg.CommentGenerator">
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+        <!-- 设置数据库链接 -->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.user}"
+                        password="${jdbc.password}">
+            <!--解决mysql驱动升级到8.0后不生成指定数据库代码的问题-->
+            <property name="nullCatalogMeansCurrent" value="true" />
+        </jdbcConnection>
+
+        <!-- 是否把JDBC的DECIMAL和NUMERIC类型解析为java.math.BigDecimal，默认false -->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 生成对象的设置 -->
+        <javaModelGenerator targetPackage="com.rogear.ssm.demo.entity" targetProject="ssm-demo\src\main\java">
+            <!-- 是否让schema作为包的后缀，默认false -->
+            <property name="enableSubPackages" value="true" />
+            <!-- 是否去除数据库返回值前后的空格，默认false -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- sql的xml文件设置 -->
+        <sqlMapGenerator targetPackage="com.rogear.ssm.demo.mapper"  targetProject="ssm-demo\src\main\resources">
+            <!-- 是否让schema作为包的后缀，默认false -->
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- mapper文件的设置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.rogear.ssm.demo.dao"  targetProject="ssm-demo\src\main\java">
+            <!-- 是否让schema作为包的后缀，默认false -->
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!-- 需要把那些表生成代码，生成全部表tableName设为% -->
+<!--        <table schema="DB2ADMIN" tableName="user" domainObjectName="User" >-->
+        <table tableName="user">
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true" />-->
+        </table>
+
+    </context>
+</generatorConfiguration>
