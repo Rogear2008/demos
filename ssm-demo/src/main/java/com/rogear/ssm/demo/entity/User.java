@@ -51,7 +51,7 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    private Byte enable;
+    private boolean enable;
 
     private static final long serialVersionUID = 1L;
 
@@ -103,11 +103,11 @@ public class User implements Serializable {
         this.birthday = birthday;
     }
 
-    public Byte getEnable() {
+    public boolean isEnable() {
         return enable;
     }
 
-    public void setEnable(Byte enable) {
+    public void setEnable(boolean enable) {
         this.enable = enable;
     }
 

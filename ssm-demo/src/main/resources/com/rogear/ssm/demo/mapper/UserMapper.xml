@@ -130,9 +130,7 @@
       <if test="birthday != null">
         birthday,
       </if>
-      <if test="enable != null">
-        enable,
-      </if>
+      enable,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -153,9 +151,7 @@
       <if test="birthday != null">
         #{birthday,jdbcType=DATE},
       </if>
-      <if test="enable != null">
-        #{enable,jdbcType=TINYINT},
-      </if>
+      #{enable,jdbcType=TINYINT},
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.rogear.ssm.demo.entity.UserExample" resultType="java.lang.Long">
