@@ -17,8 +17,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-
-    <mybatis.generator.overwrite>true</mybatis.generator.overwrite>
+    <spring.version>4.3.20.RELEASE</spring.version>
   </properties>
 
   <dependencies>
@@ -26,7 +25,7 @@
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
-      <version>3.4.6</version>
+      <version>3.2.8</version>
     </dependency>
 
     <!-- MyBatis 生成器 -->
@@ -61,17 +60,17 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
-      <version>4.3.20.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>4.3.20.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>4.3.20.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
 
     <!-- Druid数据库连接池 -->
@@ -79,6 +78,19 @@
       <groupId>com.alibaba</groupId>
       <artifactId>druid</artifactId>
       <version>1.0.31</version>
+    </dependency>
+
+    <!-- 日志 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.3</version>
     </dependency>
 
     <dependency>
