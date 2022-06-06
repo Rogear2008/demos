@@ -3,6 +3,7 @@ package com.rogear.ssm.demo;
 import com.rogear.ssm.demo.dao.UserMapper;
 import com.rogear.ssm.demo.entity.User;
 import com.rogear.ssm.demo.entity.UserExample;
+import com.rogear.ssm.demo.service.UserService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,6 +32,9 @@ public class DemoTest {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private UserService userService;
+
     private static Logger LOG = LoggerFactory.getLogger(DemoTest.class);
 
     @Test
@@ -57,5 +61,10 @@ public class DemoTest {
         LOG.info("info");
         LOG.warn("warn");
         LOG.error("error");
+    }
+
+    @Test
+    public void adviceTest() {
+        User user = userService.selectByPrimaryKey(1);
     }
 }
