@@ -19,8 +19,10 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+<!--    <mvc:default-servlet-handler/>-->
+
     <!-- 过滤静态资源 -->
-    <mvc:resources mapping="/static/" location="/WEB-INF/static/**"/>
+    <mvc:resources location="/static/" mapping="/static/**"/>
 
     <!-- 配置试图控制器，也可以写controller进行映射，xml配置更加简洁 -->
     <mvc:view-controller path="/" view-name="index"/>
