@@ -12,18 +12,21 @@
     <script type="text/javascript" src="static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
 </head>
 <body>
-<p>Click the buttons on datagrid toolbar to do crud actions.</p>
+<p>用户列表</p>
 
 <table id="dg" title="My Users" class="easyui-datagrid" style="width:700px;height:250px"
-       url="get_users.php"
+       url="${pageContext.request.contextPath}/user/list?pageNumb=1&pageSize=10"
        toolbar="#toolbar" pagination="true"
        rownumbers="true" fitColumns="true" singleSelect="true">
     <thead>
     <tr>
-        <th field="firstname" width="50">First Name</th>
-        <th field="lastname" width="50">Last Name</th>
-        <th field="phone" width="50">Phone</th>
-        <th field="email" width="50">Email</th>
+        <th field="id" width="50">ID</th>
+        <th field="createTime" width="50">创建时间</th>
+        <th field="updateTime" width="50">更新时间</th>
+        <th field="username" width="50">用户名</th>
+        <th field="password" width="50">密码</th>
+        <th field="birthday" width="50">生日</th>
+        <th field="enable" width="50">状态</th>
     </tr>
     </thead>
 </table>

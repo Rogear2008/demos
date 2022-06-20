@@ -1,9 +1,14 @@
 package com.rogear.ssm.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     /**
      * 主键
      *
@@ -16,6 +21,7 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     /**
@@ -23,6 +29,7 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     /**
@@ -44,6 +51,8 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date birthday;
 
     /**
@@ -52,8 +61,6 @@ public class User implements Serializable {
      * @mbg.generated
      */
     private boolean enable;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;

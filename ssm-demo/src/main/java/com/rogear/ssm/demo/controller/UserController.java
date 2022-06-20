@@ -7,6 +7,7 @@ import com.rogear.ssm.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,11 +29,11 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping("/list")
-    public CommonResult<User> listUser(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    public EasyUiPage<User> listUser(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                        @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
                                        @RequestParam(value = "keyWord", required = false) String keyWord) {
         EasyUiPage<User> userPage = userService.listUser(pageNum, pageSize, keyWord);
-        return new CommonResult(userPage);
+        return userPage;
     }
 }
